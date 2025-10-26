@@ -20,7 +20,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    buildDockerImage("my-python-app:latest")  
+                    buildDockerImage("my-python-app:latest", '.')  
                 }
             }
         }
