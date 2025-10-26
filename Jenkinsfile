@@ -12,7 +12,7 @@ pipeline {
 
         stage('Debug Workspace') {
             steps {
-                sh 'pwd'
+                echo "Workspace: ${env.WORKSPACE}"
                 sh 'ls -l'
                 sh 'cat Dockerfile'
             }
@@ -21,8 +21,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    // '.' points to repo root where Dockerfile exists
-                    buildDockerImage("my-python-app:latest", '.')
+                    buildDockerImage("my-python-app:latest")
                 }
             }
         }
