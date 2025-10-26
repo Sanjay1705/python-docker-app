@@ -1,4 +1,4 @@
-@Library('jenkins-shared-lib-demo') _   
+@Library('jenkins-shared-lib-demo') _
 
 pipeline {
     agent any
@@ -14,13 +14,15 @@ pipeline {
             steps {
                 sh 'pwd'
                 sh 'ls -l'
+                sh 'cat Dockerfile'
             }
         }
 
         stage('Build Docker Image') {
             steps {
                 script {
-                    buildDockerImage("my-python-app:latest", '.')  
+                    // '.' points to repo root where Dockerfile exists
+                    buildDockerImage("my-python-app:latest", '.')
                 }
             }
         }
