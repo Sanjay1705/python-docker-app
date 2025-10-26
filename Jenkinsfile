@@ -10,6 +10,13 @@ pipeline {
             }
         }
 
+        stage('Debug Workspace') {
+            steps {
+                sh 'pwd'
+                sh 'ls -l'
+            }
+        }
+
         stage('Build Docker Image') {
             steps {
                 script {
